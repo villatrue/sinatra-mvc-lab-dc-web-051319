@@ -2,9 +2,16 @@ class PigLatinizer
 
     def piglatinize(string)
         words = string.split
-        words.map do |word|
-            word.scan 
+        words.each do |word|
+            letters = word.split("")
+            letters.each do |letter|
+                if letter.match?(/\A[^AaEeIiOoUu]/)
+                    letters << letters.shift
+                end
+            end
+            
         end
+        word = letters.join
     end
 
 end
